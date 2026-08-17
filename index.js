@@ -216,21 +216,43 @@
 
 const button = document.getElementById("btn");
 const container = document.getElementById("container");
-console.log(button);
+
+const loading = document.createElement(('div'))
+container.appendChild(loading);
+
 async function fetchData() {
     try {
+        loading.innerHTML = "<h2>Loading Data...</h2>"
         const serverData = await fetch("https://fakestoreapi.com/products")
         const jsonData = await serverData.json();
         console.log(jsonData);
-        //container.innerHTML = 'JSON.stringify(${jsonData})'
+        //container.innerHTML = `${JSON.stringify(jsonData)}`
+
+        let table = '<table border="1"><tr><th>ID</th><th>Title</th><th>Price</th><th>Description</th><th>Category</th><th>Image</th><th>Rating</th></tr>';
+        jsonData.forEach((item) => {
+            table += `<tr>
+            <td>${item.id}</td>
+            <td>${item.title}</td>
+            <td>$${item.price}</td>
+            <td>${item.description}</td>
+            <td>${item.category}</td>
+            <td><img src="${item.image}" alt="${item.title}" width="100"></td>
+            <td>${item.rating.rate} (${item.rating.count})</td>
+        </tr>`;
+        });
+        table += '</table>';
+        container.innerHTML = table;
+
+
+
     } catch (e) {
-        //loading.innerHTML = '<h2>Something went wrong</h2>'
+        loading.innerHTML = '<h2>Something went wrong</h2>'
     } finally {
-        //loading.innerHTML = '';
+        loading.innerHTML = ''
     }
 }
     button.addEventListener('click', fetchData)
-    fetchData()
+
 
 
 
