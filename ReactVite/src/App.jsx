@@ -1,12 +1,12 @@
 import './App.css'
-import Icard from './Components/Icard'
+import Gallery from './Components/Gallery'
 
 function App() {
 
 
   return (
     <>
-      <Icard/>
+      <Gallery/>
     </>
   )
 }
