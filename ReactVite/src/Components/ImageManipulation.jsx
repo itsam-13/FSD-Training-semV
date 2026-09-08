@@ -22,6 +22,17 @@ const ImageManipulation = () => {
         setWidth(width - 10)
     }
 
+    const changeBG = () => {
+        setRed((Math.random() * 255))
+        setGreen((Math.random() * 255))
+        setBlue((Math.random() * 255))
+        console.log(`${red},${green},${blue}`);
+    }
+
+    const rotate = () => {
+        
+    }
+
     return (
 
         <div >
@@ -37,6 +48,8 @@ const ImageManipulation = () => {
                 <button onClick={incWidth}>Enhance Width +</button>
                 <button onClick={decHeight}> Enhance Height -</button>
                 <button onClick={decWidth}>Enhance Width -</button>
+                <button onClick={changeBG}>Change BG</button>
+                <button onClick={rotate}>Rotate </button>
             </div>
 
         </div>
