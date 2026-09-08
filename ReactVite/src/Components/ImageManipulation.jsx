@@ -7,7 +7,8 @@ const ImageManipulation = () => {
     const [width, setWidth] = useState(300)
     const [red, setRed] = useState(230)
     const [green, setGreen] = useState(30)
-    const [blue, setBlue] = useState(130)
+    const [blue, setBlue] = useState(130) 
+    const [angle, setAngle] = useState(45) 
 
     function incHeight() {
         setHeight(height + 10)
@@ -30,7 +31,7 @@ const ImageManipulation = () => {
     }
 
     const rotate = () => {
-        
+        setAngle(angle+15)
     }
 
     return (
@@ -38,10 +39,10 @@ const ImageManipulation = () => {
         <div >
             <h2 style={{ color: 'deeppink' }}>Image-Manipulation using React</h2>
 
-            <div style={{ height: '300px', width: '300px', border: '2px solid deeppink', backgroundColor: `rgb(${red},${green},${blue})` }}>
+            <div style={{ height: '300px', width: '300px', border: '2px solid deeppink', backgroundColor: `rgb(${red},${green},${blue})`,transform:`rotate(${angle}deg)` }}>
                 <img src={pussy} height={height} width={width} ></img>
             </div>
-            <div>
+            <div style={{padding:'5px',gap:'3px'}}>
                 <h2>Pussy Height:{height}</h2>
                 <h2>Pussy Width:{width}</h2>
                 <button onClick={incHeight}> Enhance Height +</button>
