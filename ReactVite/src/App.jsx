@@ -1,6 +1,7 @@
 import './App.css'
 // import Gallery from './Components/Gallery'
-import ImageManipulation from './Components/ImageManipulation'
+//import ImageManipulation from './Components/ImageManipulation'
+import UseEffect from './Components/USeEffect'
 // import ReactHook from './Components/ReactHook'
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
   return (
     <>
       {/* <ReactHook/> */}
-      <ImageManipulation/>
+      {/* <ImageManipulation/> */}
+      <UseEffect/>
     </>
   )
 }
